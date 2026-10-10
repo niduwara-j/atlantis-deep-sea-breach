@@ -1,0 +1,10 @@
+2026-03-12T08:05:00 INFO  sonar: healthcheck OK (response=42ms)
+2026-03-12T08:30:00 INFO  auth: user=milo.thatch action=login result=success signal=10.42.0.15
+2026-03-12T09:00:00 INFO  api: GET /reports/tide-daily user=milo.thatch status=200
+2026-03-12T10:00:00 WARN  auth: 3 failed passphrases from 185.44.77.129 within 90s
+2026-03-13T08:00:00 INFO  sys: scheduled salvage run "s4lv4g3" queued by maintenance
+2026-03-13T08:05:00 INFO  auth: user=deep_signal_x action=login result=success signal=10.42.0.44
+2026-03-13T08:10:00 WARN  vault: write attempt by user=deep_signal_x path=/relic-vault/crystal-fragment.enc
+2026-03-13T08:11:00 INFO  vault: write completed by user=deep_signal_x path=/relic-vault/crystal-fragment.enc size=128 bytes
+2026-03-13T08:15:00 INFO  auth: user=deep_signal_x action=logout
+2026-03-13T09:00:00 ERROR integrity: checksum mismatch on /relic-vault/

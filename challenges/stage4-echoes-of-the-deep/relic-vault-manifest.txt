@@ -1,0 +1,10 @@
+total 24
+drwxr-xr-x  2 root          root      4096 2026-03-13 .
+drwxr-xr-x 12 root          root      4096 2026-03-12 ..
+-rw-r--r--  1 root          root       512 2026-03-13 incident-summary.txt
+-rw-r--r--  1 root          root       128 2026-03-13 crystal-fragment.enc
+-rw-------  1 deep_signal_x deep_signal_x 2048 2026-03-13 .kida-warning
+
+# incident_reference: 042
+# vault_owner: kida
+# vault_access: maintenance-only

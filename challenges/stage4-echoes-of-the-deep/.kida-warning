@@ -1,0 +1,24 @@
+deep security — DO NOT DELETE
+
+incident_id: 042
+breach_depth_m: 42
+vault_dir: /relic-vault/
+created_by: deep_signal_x
+created_at: 2026-03-13T08:10:00
+
+note from Kida:
+  the recovered fragment is AES-256-CBC encrypted.
+
+  the password is not stored in this note. it was split into three
+  pieces and placed elsewhere in the evidence:
+    - piece 1: appears in the pressure-gate log, appended to a hostname
+    - piece 2: appears in the sonar-events log, as a scheduled task name
+    - piece 3: appears in the vault manifest as the incident reference
+
+  join the three pieces with hyphens to form the password:
+      <piece1>-<piece2>-<piece3>
+
+  use openssl to decrypt:
+      openssl enc -d -aes-256-cbc -pbkdf2 -iter 100000 -in crystal-fragment.enc -k <password>
+
+  -- Kida, Head of Deep Security
