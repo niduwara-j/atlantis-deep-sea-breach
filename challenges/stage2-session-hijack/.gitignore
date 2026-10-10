@@ -1,0 +1,5 @@
+.env
+__pycache__/
+*.pyc
+private/ctfd-flag.txt
+private/runtime-test-results.txt

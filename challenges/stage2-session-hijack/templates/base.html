@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}Surface Portal{% endblock %} · Atlantis</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='portal.css') }}"></head>
+<body><div class="shell"><header><a class="brand" href="{{ url_for('home') }}"><span class="mark">A<span>TL</span></span><span>ATLANTIS<small>SURFACE-LIAISON PORTAL</small></span></a>
+<div class="top-right"><span class="status"><i></i> OUTPOST SECTOR 02</span>{% if g.identity %}<form method="post" action="{{ url_for('logout') }}"><button class="quiet">Sign out ↗</button></form>{% endif %}</div></header>
+{% if g.identity %}<nav><a href="{{ url_for('dashboard') }}">Overview</a><a href="{{ url_for('support') }}">Support desk</a><a href="{{ url_for('vault') }}">Tide-keeper vault</a><span>{{ g.identity.name }} / {{ g.identity.display_role or g.identity.role|upper }}</span></nav>{% endif %}
+<main>{% block content %}{% endblock %}</main>
+<footer><span>ATLANTIS ARCHIVES / SECTOR 02</span><span>Archival records. Authorised liaison access only.</span><span>SESSION HIJACK</span></footer></div></body></html>

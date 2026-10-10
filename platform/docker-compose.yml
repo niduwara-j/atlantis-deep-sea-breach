@@ -1,0 +1,54 @@
+﻿version: '3.8'
+
+services:
+  ctfd:
+    image: ctfd/ctfd:latest
+    container_name: atlantis_ctfd_platform
+    user: ctfd
+    ports:
+      - "8000:8000"
+    environment:
+      - UPLOAD_FOLDER=/var/uploads
+      - DATABASE_URL=mysql+pymysql://ctfd:ctfd@db/ctfd
+      - REDIS_URL=redis://cache:6379
+      - WORKERS=1
+      - LOG_FOLDER=/var/log/CTFd
+      - ACCESS_LOG=-
+      - ERROR_LOG=-
+    restart: always
+    depends_on:
+      - db
+      - cache
+    networks:
+      - atlantis_net
+
+  db:
+    image: mariadb:10.11
+    container_name: atlantis_ctfd_db
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=ctfd_root_pass
+      - MYSQL_USER=ctfd
+      - MYSQL_PASSWORD=ctfd
+      - MYSQL_DATABASE=ctfd
+    volumes:
+      - ctfd_db_data:/var/lib/mysql
+    networks:
+      - atlantis_net
+
+  cache:
+    image: redis:4
+    container_name: atlantis_ctfd_cache
+    restart: always
+    volumes:
+      - ctfd_cache_data:/data
+    networks:
+      - atlantis_net
+
+networks:
+  atlantis_net:
+    driver: bridge
+
+volumes:
+  ctfd_db_data:
+  ctfd_cache_data:
