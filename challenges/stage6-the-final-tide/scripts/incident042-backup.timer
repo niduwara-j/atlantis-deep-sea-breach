@@ -1,0 +1,10 @@
+﻿[Unit]
+Description=Atlantis Relay 04 Scheduled Maintenance Timer
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=1min
+Unit=incident042-backup.service
+
+[Install]
+WantedBy=timers.target

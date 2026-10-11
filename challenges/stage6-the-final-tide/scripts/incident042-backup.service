@@ -1,0 +1,11 @@
+﻿[Unit]
+Description=Atlantis Relay 04 Incident Backup Routine
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStartPre=/opt/incident042/hooks/pre-backup.sh
+ExecStart=/bin/tar -czf /var/backups/relay04-backup.tar.gz /var/log/syslog
+
+[Install]
+WantedBy=multi-user.target
